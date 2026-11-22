@@ -145,13 +145,84 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 700px) {
+    /* در موبایل هم منو سمت راست و محتوا سمت چپ باقی می‌مانند */
     .main-container {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(112px, 30%) minmax(0, 1fr);
+        direction: rtl;
+        align-items: start;
+        gap: 10px;
+        padding: 12px;
     }
 
-    .header h1 {
-        font-size: 24px;
+    .sidebar {
+        width: auto;
+        min-width: 0;
+        padding: 12px 8px;
     }
+
+    .sidebar h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .menu a {
+        padding: 9px 5px;
+        font-size: 12px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .content {
+        width: auto;
+        min-width: 0;
+        padding: 16px 12px;
+        min-height: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .content h2 { font-size: 19px; }
+    .content p {
+        font-size: 13px;
+        line-height: 2;
+        text-align: right;
+    }
+
+    .header {
+        min-height: 190px;
+    }
+
+    .header-overlay { padding: 22px 12px; }
+    .header h1 { font-size: 23px; }
+    .header p { font-size: 14px; }
+
+    .content img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* گوشی‌های باریک */
+@media (max-width: 380px) {
+    .main-container {
+        grid-template-columns: minmax(96px, 32%) minmax(0, 1fr);
+        gap: 7px;
+        padding: 8px;
+    }
+
+    .sidebar { padding: 9px 5px; }
+    .sidebar h2 { font-size: 13px; }
+    .menu a { font-size: 11px; padding: 8px 3px; }
+    .content { padding: 12px 9px; }
+    .content h2 { font-size: 16px; }
+    .content p { font-size: 12px; }
 }
 
 /* استایل آیکون رشته‌ها */
