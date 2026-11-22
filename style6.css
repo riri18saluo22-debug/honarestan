@@ -253,3 +253,48 @@ body {
     color: #FFFFFF;
     transform: scale(1.1);
 }
+
+
+/* اصلاح نهایی نمایش در گوشی؛ منو راست و محتوا چپ */
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+* { box-sizing: border-box; }
+.main-container {
+    display: grid !important;
+    grid-template-columns: minmax(105px, 30%) minmax(0, 1fr) !important;
+    direction: rtl !important;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    align-items: start;
+}
+.sidebar, .content { min-width: 0; }
+.content { overflow-wrap: anywhere; }
+.content img, .gallery-image, .header-overlay img {
+    max-width: 100%;
+    height: auto;
+}
+.gallery-image { width: min(100%, 500px); object-fit: contain; }
+@media (max-width: 700px) {
+    .main-container {
+        grid-template-columns: minmax(100px, 32%) minmax(0, 1fr) !important;
+        gap: 8px;
+        padding: 9px;
+    }
+    .sidebar { padding: 10px 6px; }
+    .sidebar h2 { font-size: 13px; line-height: 1.7; }
+    .menu { gap: 7px; }
+    .menu a { font-size: 11px; line-height: 1.7; padding: 8px 3px; overflow-wrap: anywhere; }
+    .content { padding: 13px 9px; min-height: 0; }
+    .content h2 { font-size: 16px; line-height: 1.8; }
+    .content h3 { font-size: 13px; line-height: 1.8; }
+    .content p { font-size: 12px; line-height: 2; text-align: right; }
+    .footer { font-size: 11px; padding: 14px 8px; }
+    .header-overlay { width: 100%; padding: 8px; }
+    .header-overlay img { width: 100%; max-height: 170px; object-fit: contain; }
+}
+@media (max-width: 360px) {
+    .main-container { grid-template-columns: minmax(92px, 33%) minmax(0, 1fr) !important; gap: 6px; padding: 7px; }
+    .menu a { font-size: 10px; padding: 7px 2px; }
+    .content { padding: 10px 7px; }
+    .content p { font-size: 11px; }
+}
